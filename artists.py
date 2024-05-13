@@ -1,9 +1,6 @@
-import requests
+from common import common_get
 
-def get_artist(url, tokenDict):
-    token = tokenDict["access_token"]
-    auth = tokenDict["token_type"]
-    header = {"Authorization" : f"{auth} {token}"}
-    artist_dict = requests.get(url, headers=header)
+def get_artist(url, token):
+    artist_dict = common_get(url, token)
     return artist_dict.json()
 
